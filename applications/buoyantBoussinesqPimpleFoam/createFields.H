@@ -42,7 +42,7 @@ volVectorField U
     mesh
 );
 
-// Read the nodal value of latent heat (Delat H)
+// Read the nodal value of latent heat (Delat H) $$
 Info<< "Reading field DH\n" << endl;
 volScalarField DH
 (
@@ -66,7 +66,7 @@ autoPtr<incompressible::turbulenceModel> turbulence
     incompressible::turbulenceModel::New(U, phi, laminarTransport)
 );
 
-// kinematic turbulent thermal thermal conductivity m2/s
+// kinematic turbulent thermal thermal conductivity m2/s 
 Info<< "Reading field alphat\n" << endl;
 volScalarField alphat
 (
@@ -81,7 +81,7 @@ volScalarField alphat
     mesh
 );
 
-// liquid fraction
+// liquid fraction $$
 volScalarField f_l
 (
     IOobject
@@ -95,7 +95,7 @@ volScalarField f_l
     DH/L_heat
 );
 
-// porous term coefficient C_poro
+// porous term coefficient C_poro $$
 volScalarField C_poro
 (
     IOobject
@@ -108,7 +108,7 @@ volScalarField C_poro
 );
 
 
-// create a scalar field to store the values of DH/cp
+// create a scalar field to store the values of DH/cp $$
 volScalarField DHcp
 (
     IOobject
@@ -120,7 +120,7 @@ volScalarField DHcp
     DH/cp
 );
 
-// create a scalar field to store diagonal coefficients at current time step Ap
+// create a scalar field to store diagonal coefficients at current time step Ap $$
     volScalarField DiaCoeff
 (
     IOobject
@@ -129,10 +129,10 @@ volScalarField DHcp
         runTime.timeName(),
         mesh
     ), 
-    f_l*0.0  //initial value as a non-dimensional number
+    f_l*0.0  //initial value as a non-dimensional number $$
 );
 
-// create a scalar field to store cell volumes
+// create a scalar field to store cell volumes $$
     volScalarField cell_vol
 (
     IOobject
@@ -141,7 +141,7 @@ volScalarField DHcp
         runTime.timeName(),
         mesh
     ), 
-    T/T  //initial value as a non-dimensional number
+    T/T  //initial value as a non-dimensional number $$
 );
 
 #include "readGravitationalAcceleration.H"

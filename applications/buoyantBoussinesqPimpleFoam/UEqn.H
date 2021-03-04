@@ -9,8 +9,8 @@
       + turbulence->divDevReff(U)
      ==
         fvOptions(U)
-      - fvm::Sp(C_poro,U) //porous source term
-      - beta*g*(T-TRef) // buoyant term
+      - fvm::Sp(C_poro,U) //porous source term $$
+      - beta*g*(T-TRef) // buoyant term $$
     );
 
     UEqn.relax();
@@ -26,7 +26,7 @@
             fvc::reconstruct
             (
                 (
-                  - fvc::snGrad(p)
+                  - fvc::snGrad(p) //changed from hydrostatic pressure to relative reduced pressure $$
                 )*mesh.magSf()
             )
         );
