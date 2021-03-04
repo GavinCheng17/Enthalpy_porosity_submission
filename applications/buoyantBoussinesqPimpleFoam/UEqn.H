@@ -9,6 +9,8 @@
       + turbulence->divDevReff(U)
      ==
         fvOptions(U)
+      - fvm::Sp(C_poro,U) //porous source term
+      - beta*g*(T-TRef) // buoyant term
     );
 
     UEqn.relax();
@@ -24,8 +26,7 @@
             fvc::reconstruct
             (
                 (
-                  - ghf*fvc::snGrad(rhok)
-                  - fvc::snGrad(p_rgh)
+                  - fvc::snGrad(p)
                 )*mesh.magSf()
             )
         );

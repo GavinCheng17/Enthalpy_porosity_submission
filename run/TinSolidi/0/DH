@@ -9,20 +9,20 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volVectorField;
-    object      U;
+    class       volScalarField;
+    object      DH;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform (0 0 0);
+internalField   uniform 59200; //if liquid, equals to the latent heat of fusion; if solid 0
 
 boundaryField
 {
     wall
     {
-        type            noSlip;
+        type            zeroGradient;
     }
 
     #includeEtc "caseDicts/setConstraintTypes"
